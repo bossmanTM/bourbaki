@@ -1,4 +1,4 @@
-use std::ops::{Add, Sub, Mul}; 
+use std::ops::{Add, Sub, Mul, Div}; 
 
 pub struct Cartesian<T> {
 	pub coords :Vec<T>
@@ -36,15 +36,29 @@ impl<T: Sub<Output = T> + Copy> Sub for Cartesian<T> {
 	}
 }
 
-//implimenting generic mul for Cartesian
-impl<T: Mul<Output = T> + Copy> Mul for Cartesian<T> {
-	type Output = Self;
-
-	fn mul(self, rhs: Self) -> Self::Output {
-		let mut prod:Cartesian<T> = Cartesian::new();
-		for i in 0..self.coords.len() {
-			prod.coords.push(self.coords[i] + rhs.coords[i])
-		}
-		prod
-	}
-}
+// im an idiot and forgot that it doesnt work that way lol
+////implimenting generic mul for Cartesian
+//impl<T: Mul<Output = T> + Copy> Mul for Cartesian<T> {
+//	type Output = Self;
+//
+//	fn mul(self, rhs: Self) -> Self::Output {
+//		let mut prod:Cartesian<T> = Cartesian::new();
+//		for i in 0..self.coords.len() {
+//			prod.coords.push(self.coords[i] + rhs.coords[i])
+//		}
+//		prod
+//	}
+//}
+//
+////implimenting generic mul for Cartesian
+//impl<T: Div<Output = T> + Copy> Div for Cartesian<T> {
+//	type Output = Self;
+//
+//	fn div(self, rhs: Self) -> Self::Output {
+//		let mut quot:Cartesian<T> = Cartesian::new();
+//		for i in 0..self.coords.len() {
+//			quot.coords.push(self.coords[i] + rhs.coords[i])
+//		}
+//		quot
+//	}
+//}
